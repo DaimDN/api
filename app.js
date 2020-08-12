@@ -40,6 +40,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(4000, function(req, res){
-  console.log("Server is up and running on port " + 3000)
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 4000;
+}
+
+app.listen(port, function(req, res){
+  console.log("Server is up and running on port " + port)
 })
